@@ -18,8 +18,8 @@ This application demonstrates the patterns:
 
 The following diagram shows the architecture of the Rental Cars application.
 
-![](./images/architecture.png)
+![](./images/architecture_rental_car.png)
 
-The application consists in the services: `Reservation Service`, `Inventory Service`, `Inventory History Service`, `Emailer Service`, and `Insurance Partner Wrapper Service`.
+The application consists in the services: `API Gateway`, `Auth Service`, `Reservation Service`, `Inventory Command Service`, `Inventory Query Service`, `Emailer Service`, and `Insurance Partner Wrapper Service`.
 
 All services are implemented using Spring Boot.
