@@ -1,0 +1,18 @@
+server:
+  port: 9082
+
+spring:
+  h2:
+    console:
+      path: /h2
+      enabled: true
+
+axon:
+  kafka:
+    client-id: inventory-query-service
+    default-topic: rental.inventoryEvent
+
+    consumer:
+      bootstrap-servers: localhost:9091
+      group-id: inventory_query_service_group
+      event-processor-mode: TRACKING

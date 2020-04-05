@@ -1,0 +1,16 @@
+server:
+  port: 8082
+
+spring:
+  h2:
+    console:
+      path: /h2
+      enabled: true
+
+axon:
+  kafka:
+    client-id: inventory-command-service
+    default-topic: rental.inventoryEvent
+
+    producer:
+      bootstrap-servers: localhost:9091
