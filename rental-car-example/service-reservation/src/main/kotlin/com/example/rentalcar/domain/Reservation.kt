@@ -1,4 +1,4 @@
-package com.example.rentalcar.reservation
+package com.example.rentalcar.core.domain
 
 import java.time.LocalDate
 import javax.persistence.*
@@ -7,12 +7,11 @@ import javax.persistence.*
 data class Reservation(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = 0,
+    val id: String,
 
-    val customerId: Long,
+    val customerId: String,
 
-    val vehicleId: Long,
+    val inventoryId: String,
 
     val startDate: LocalDate,
 
