@@ -1,4 +1,4 @@
-package com.example.rentalcar.core.domain
+package com.example.rentalcar.domain
 
 enum class ReservationStatus {
     APPROVED,

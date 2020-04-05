@@ -1,8 +1,13 @@
 package com.example.rentalcar.reservation
 
+import com.example.rentalcar.domain.Reservation
+import com.example.rentalcar.domain.ReservationStatus
+import java.util.*
+
 fun ReservationFormRequest.toReservation() = Reservation(
+    id = UUID.randomUUID().toString(),
     customerId = customerId,
-    vehicleId = vehicleId,
+    inventoryId = inventoryId,
     startDate = startDate,
     endDate = endDate,
     status = ReservationStatus.PENDING
@@ -11,6 +16,6 @@ fun ReservationFormRequest.toReservation() = Reservation(
 fun Reservation.toReservationResponse() = ReservationResponse(
     id = id,
     customerId = customerId,
-    vehicleId = vehicleId,
+    inventoryId = inventoryId,
     status = status
 )

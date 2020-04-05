@@ -5,14 +5,14 @@ import org.springframework.stereotype.Service
 @Service
 class ReservationServiceImpl(
     private val repository: ReservationRepository,
-    private val producer: ReservationProducer
+    private val reservationProducer: ReservationProducer
 ) : ReservationService {
 
     override fun create(form: ReservationFormRequest): ReservationResponse {
         val savedReservation = form.toReservation()
 
         repository.save(savedReservation)
-        producer.send(savedReservation)
+        reservationProducer.produce(savedReservation)
 
         return savedReservation.toReservationResponse()
     }
