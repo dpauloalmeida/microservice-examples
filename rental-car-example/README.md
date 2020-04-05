@@ -3,9 +3,10 @@ on developing microservices.
 
 This application demonstrates the patterns:
 
-* [Event-driven](https://microservices.io/patterns/data/event-driven-architecture.html) - Some business transactions, however, span multiple service so you need a mechanism to ensure data consistency across services.
+* [Event-driven](https://microservices.io/patterns/data/event-driven-architecture.html) - some business transactions, however, span multiple service so you need a mechanism to ensure data consistency across services.
 * [Database per service](https://microservices.io/patterns/data/database-per-service.html) - each service has its own private database.
 * [CQRS](http://microservices.io/patterns/data/cqrs.html) - implement queries by maintaining one or more materialized views that can be efficiently queried.
+* [Event sourcing](https://microservices.io/patterns/data/event-sourcing.html) - persist aggregates as a sequence of events.
 * [Shared database](https://microservices.io/patterns/data/shared-database.html) - services share a database.
 * [API gateway](https://microservices.io/patterns/apigateway.html) - a service that provides each client with unified interface to services.
 * [Circuit Breaker](https://microservices.io/patterns/reliability/circuit-breaker.html) - invoke a remote service via a proxy that fails immediately when the failure rate of the remote call exceeds a threshold.
