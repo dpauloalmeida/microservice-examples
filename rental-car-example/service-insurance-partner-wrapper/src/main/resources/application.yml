@@ -1,0 +1,14 @@
+server:
+  port: 8084
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9091
+
+  cloud:
+    stream:
+
+      bindings:
+        createdIn:
+          destination: rental.reservationCreated
+          group: insurance_partner_wrapper_service_group
