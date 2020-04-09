@@ -1,12 +1,14 @@
 package com.example.rentalcar.inventory
 
 import org.axonframework.commandhandling.gateway.CommandGateway
+import org.springframework.messaging.support.MessageBuilder
 import org.springframework.stereotype.Service
 import java.util.concurrent.CompletableFuture
 
 @Service
 class InventoryCommandServiceImpl(
-    private val commandGateway: CommandGateway
+    private val commandGateway: CommandGateway,
+    private val inventoryProcessor: InventoryProcessor
 ) : InventoryCommandService {
 
     override fun create(form: InventoryFormRequest) {
@@ -16,6 +18,7 @@ class InventoryCommandServiceImpl(
 
     override fun rent(inventoryId: String) {
         val command = ReserveInventoryCommand(inventoryId)
-        commandGateway.send<CompletableFuture<String>>(command)
+        commandGateway.sendAndWait<String>(command)
+        inventoryProcessor.carReservedAtLocation().send(MessageBuilder.withPayload(inventoryId).build())
     }
 }

@@ -12,11 +12,11 @@ class ReservationResource(
 
     @PostMapping
     fun reserve(@RequestBody form: ReservationFormRequest,
-                uriBuilder: UriComponentsBuilder): ResponseEntity<ReservationResponse> {
-
+                uriBuilder: UriComponentsBuilder): ResponseEntity<Unit> {
+        
         val reserved = reservationService.create(form)
         val uri = uriBuilder.path("/reservations/{id}").buildAndExpand(reserved.id).toUri()
-        return ResponseEntity.created(uri).body(reserved)
+        return ResponseEntity.created(uri).build()
     }
 
     @GetMapping("/{id}")

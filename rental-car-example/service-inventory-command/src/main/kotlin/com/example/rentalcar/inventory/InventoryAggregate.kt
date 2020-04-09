@@ -1,13 +1,19 @@
 package com.example.rentalcar.inventory
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import org.axonframework.commandhandling.CommandHandler
 import org.axonframework.eventsourcing.EventSourcingHandler
 import org.axonframework.modelling.command.AggregateIdentifier
 import org.axonframework.modelling.command.AggregateLifecycle.*
 import org.axonframework.spring.stereotype.Aggregate
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.messaging.support.MessageBuilder
 
 @Aggregate
 class InventoryAggregate() {
+
+    @Autowired
+    private lateinit var inventoryProcessor: InventoryProcessor
 
     @AggregateIdentifier
     private lateinit var inventoryId: String
@@ -38,5 +44,4 @@ class InventoryAggregate() {
     fun on(event: InventoryReservedEvent) {
         reserved = true
     }
-
 }

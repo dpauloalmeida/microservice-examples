@@ -1,20 +1,20 @@
 package com.example.rentalcar.reservation
 
+import com.example.rentalcar.domain.Reservation
+import org.springframework.messaging.support.MessageBuilder
 import org.springframework.stereotype.Service
 
 @Service
 class ReservationServiceImpl(
     private val repository: ReservationRepository,
-    private val reservationProducer: ReservationProducer
+    private val reservationProcessor: ReservationProcessor
 ) : ReservationService {
 
-    override fun create(form: ReservationFormRequest): ReservationResponse {
+    override fun create(form: ReservationFormRequest): Reservation {
         val savedReservation = form.toReservation()
-
-        repository.save(savedReservation)
-        reservationProducer.produce(savedReservation)
-
-        return savedReservation.toReservationResponse()
+        return repository.save(savedReservation).also {
+            reservationProcessor.created().send(MessageBuilder.withPayload(it).build())
+        }
     }
 
     override fun findById(id: Long): ReservationResponse {

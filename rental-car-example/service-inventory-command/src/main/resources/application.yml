@@ -7,6 +7,21 @@ spring:
       path: /h2
       enabled: true
 
+  kafka:
+    bootstrap-servers: localhost:9091
+
+  cloud:
+    stream:
+      default:
+        contentType: application/json
+      bindings:
+        createdIn:
+          destination: rental.reservationCreated
+          group: inventory_command_service_group
+
+        carReservedAtLocationOut:
+          destination: rental.carReservedAtLocation
+
 axon:
   kafka:
     client-id: inventory-command-service

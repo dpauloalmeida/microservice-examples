@@ -10,7 +10,7 @@ fun ReservationFormRequest.toReservation() = Reservation(
     inventoryId = inventoryId,
     startDate = startDate,
     endDate = endDate,
-    status = ReservationStatus.PENDING
+    status = ReservationStatus.CREATED
 )
 
 fun Reservation.toReservationResponse() = ReservationResponse(

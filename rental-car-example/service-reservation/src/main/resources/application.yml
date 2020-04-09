@@ -3,12 +3,12 @@ server:
 
 spring:
   kafka:
-    producer:
-      bootstrap-servers: localhost:9091
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    bootstrap-servers: localhost:9091
 
-kafka:
-  producer:
-    topic: rental.reservationCreated
-
+  cloud:
+    stream:
+      default:
+        contentType: application/json
+      bindings:
+        createdOut:
+          destination: rental.reservationCreated

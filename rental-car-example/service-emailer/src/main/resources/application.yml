@@ -1,0 +1,17 @@
+server:
+  port: 8083
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9091
+
+  cloud:
+    stream:
+      bindings:
+        createdIn:
+          destination: rental.reservationCreated
+          group: emailer_service_group
+
+        carReservedAtLocationIn:
+          destination: rental.carReservedAtLocation
+          group: emailer_service_group
