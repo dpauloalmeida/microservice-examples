@@ -20,19 +20,7 @@ zuul:
       path: /inventories/**
       serviceId: inventory-query
 
-    inventory-command:
-      stripPrefix: false
-      path: /inventories/**
-      serviceId: inventory-command
-
     reservation:
       stripPrefix: false
       path: /reservations/**
       serviceId: reservation
-
-zuul-method-map:
-  routes:
-    inventory-query:
-      - GET
-    inventory-command:
-      - POST
