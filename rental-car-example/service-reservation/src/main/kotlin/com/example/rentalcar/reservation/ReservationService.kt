@@ -4,5 +4,5 @@ import com.example.rentalcar.domain.Reservation
 
 interface ReservationService {
     fun create(form: ReservationFormRequest): Reservation
-    fun findById(id: Long): ReservationResponse
+    fun findById(id: String): ReservationResponse
 }

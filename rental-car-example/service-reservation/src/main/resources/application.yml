@@ -7,6 +7,9 @@ eureka:
       defaultZone: http://localhost:8010/eureka/
 
 spring:
+  jpa:
+    show-sql: true
+
   kafka:
     bootstrap-servers: localhost:9091
 

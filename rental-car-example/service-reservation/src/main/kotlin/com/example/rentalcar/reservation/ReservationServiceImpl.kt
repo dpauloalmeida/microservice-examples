@@ -17,7 +17,7 @@ class ReservationServiceImpl(
         }
     }
 
-    override fun findById(id: Long): ReservationResponse {
+    override fun findById(id: String): ReservationResponse {
         val foundReservation = repository.findById(id).orElseThrow { ResourceNotFoundException() }
         return foundReservation.toReservationResponse()
     }

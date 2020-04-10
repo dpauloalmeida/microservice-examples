@@ -20,5 +20,5 @@ class ReservationResource(
     }
 
     @GetMapping("/{id}")
-    fun detail(@PathVariable id: Long) = ResponseEntity.ok().body(reservationService.findById(id))
+    fun detail(@PathVariable id: String) = ResponseEntity.ok().body(reservationService.findById(id))
 }
