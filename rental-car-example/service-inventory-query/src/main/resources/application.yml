@@ -12,6 +12,9 @@ spring:
       path: /h2
       enabled: true
 
+  jpa:
+    show-sql: true
+
 axon:
   kafka:
     client-id: inventory-query-service
