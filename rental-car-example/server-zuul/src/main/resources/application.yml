@@ -1,0 +1,38 @@
+server:
+  port: 9999
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - routes
+
+zuul:
+  routes:
+    inventory-query:
+      stripPrefix: false
+      path: /inventories/**
+      serviceId: inventory-query
+
+    inventory-command:
+      stripPrefix: false
+      path: /inventories/**
+      serviceId: inventory-command
+
+    reservation:
+      stripPrefix: false
+      path: /reservations/**
+      serviceId: reservation
+
+zuul-method-map:
+  routes:
+    inventory-query:
+      - GET
+    inventory-command:
+      - POST

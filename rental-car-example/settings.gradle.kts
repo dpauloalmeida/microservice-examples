@@ -6,5 +6,6 @@ include(
     "service-inventory-query",
     "service-emailer",
     "service-insurance-partner-wrapper",
-    "server-eureka"
+    "server-eureka",
+    "server-zuul"
 )
