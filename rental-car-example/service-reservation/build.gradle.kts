@@ -20,6 +20,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.cloud:spring-cloud-starter-oauth2")
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-hystrix")
+	implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")

@@ -27,10 +27,11 @@ All services implemented using:
 * [Spring Boot](https://spring.io/projects/spring-boot) - makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".
 * [Spring Data JPA](https://spring.io/projects/spring-data-jpa) - makes it easy to easily implement JPA based repositories.
 * [Spring Security (OAuth2)](https://spring.io/projects/spring-security-oauth) - is a powerful and highly customizable authentication and access-control framework. 
+* [Spring Retry](https://docs.spring.io/spring-batch/docs/current/reference/html/retry.html) - to make processing more robust and less prone to failure, it sometimes helps to automatically retry a failed operation in case it might succeed on a subsequent attempt.
 * [Spring Cloud Netflix](https://spring.io/projects/spring-cloud-netflix):
     * Routing (Zuul) - provide a simple, yet effective way to route to APIs and provide cross cutting concerns to them such as: security, monitoring/metrics, and resiliency.
     * Discovery (Eureka) - instances can be registered and clients can discover the instances using Spring-managed beans.
     * Circuit Breaker (Hystrix) - provide a consistent API to use in your applications allowing you the developer to choose the circuit breaker implementation that best fits your needs for your app.
-* [Spring Cloud Tracing (Sleuth, Zipkin)](https://spring.io/projects/spring-cloud-sleuth) - implements a distributed tracing solution for Spring Cloud, borrowing heavily from Dapper, Zipkin and HTrace.
+* [Spring Cloud Tracing (Sleuth)](https://spring.io/projects/spring-cloud-sleuth) - implements a distributed tracing solution for Spring Cloud, borrowing heavily from Dapper, Zipkin and HTrace.
 * [Spring Cloud Stream (Kafka)](https://spring.io/projects/spring-cloud-stream) - is a framework for building highly scalable event-driven microservices connected with shared messaging systems.
 * [Axon Framework](https://axoniq.io/resources/concepts#0) - platform has roots in the well established CQRS (Command Query Responsibility Segregation) and Event Sourcing design patterns as well as the DDD (Domain-Driven Design) architecture paradigm.
