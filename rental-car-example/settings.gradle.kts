@@ -7,5 +7,6 @@ include(
     "service-emailer",
     "service-insurance-partner-wrapper",
     "server-eureka",
-    "server-zuul"
+    "server-zuul",
+    "server-auth"
 )

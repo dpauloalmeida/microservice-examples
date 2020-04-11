@@ -1,16 +1,15 @@
 package com.example.rentalcar
 
-import com.example.rentalcar.reservation.ReservationProcessor
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer
 
 @SpringBootApplication
+@EnableAuthorizationServer
 @EnableResourceServer
-@EnableBinding(ReservationProcessor::class)
-class ReservationApplication
+class AuthApplication
 
 fun main(args: Array<String>) {
-	runApplication<ReservationApplication>(*args)
+	runApplication<AuthApplication>(*args)
 }
