@@ -1,28 +1,26 @@
 package com.example.rentalcar.reservation
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.GrantedAuthority
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Service
 
 @Service
 class ReservationAuthorizationService(
-    private val reservationRepository: ReservationRepository
+    private val reservationRepository: ReservationRepository,
+    private val customerClient: CustomerClient
 ) {
 
+    @HystrixCommand(fallbackMethod = "isReservationCustomerFallback")
     fun isReservationCustomer(reservationId: String, authentication: Authentication): Boolean {
         val username = authentication.principal as String
-        val roles = authentication.authorities
 
-        val customerId = findCustomerByUsername(username)
+        val customerId = customerClient.getCustomerDetail(username, authentication)
 
-         return hasRole(roles) && reservationRepository.existsByIdAndCustomerId(reservationId, customerId)
+         return customerId.role == "ROLE_USER" && reservationRepository.existsByIdAndCustomerId(reservationId, customerId.id)
     }
 
-    private fun findCustomerByUsername(username: String): String {
-        return if(username == "danilo") "1" else "0"
-    }
+    fun isReservationCustomerFallback(reservationId: String, authentication: Authentication) = false
 
-    private fun hasRole(roles: Collection<GrantedAuthority>): Boolean {
-        return roles.any { it.authority == "ROLE_USER" }
-    }
 }
