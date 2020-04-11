@@ -4,11 +4,14 @@ import com.example.rentalcar.domain.Inventory
 import org.axonframework.config.ProcessingGroup
 import org.axonframework.eventhandling.EventHandler
 import org.slf4j.LoggerFactory
+import org.springframework.cache.annotation.CacheConfig
+import org.springframework.cache.annotation.CacheEvict
 import org.springframework.stereotype.Service
 import javax.persistence.EntityNotFoundException
 
 @Service
 @ProcessingGroup("inventories")
+@CacheConfig(cacheNames = ["inventories"])
 class InventoryEventHandler(
     private val inventoryRepository: InventoryRepository
 ) {
@@ -18,6 +21,7 @@ class InventoryEventHandler(
     }
 
     @EventHandler
+    @CacheEvict(allEntries = true)
     fun on(event: InventoryAddedEvent) {
         LOG.info("Processing event to add inventory: $event")
 
@@ -28,6 +32,7 @@ class InventoryEventHandler(
     }
 
     @EventHandler
+    @CacheEvict(allEntries = true)
     fun on(event: InventoryReservedEvent) {
         LOG.info("Processing event to reserve inventory: $event")
 

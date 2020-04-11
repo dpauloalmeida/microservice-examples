@@ -20,6 +20,7 @@ dependencies {
 	}
 	implementation("org.axonframework.extensions.kafka:axon-kafka-spring-boot-starter:4.0-RC3")
 	implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
+	implementation("org.springframework.boot:spring-boot-starter-cache")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
